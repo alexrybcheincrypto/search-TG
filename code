@@ -1,0 +1,15 @@
+python
+import telebot
+
+bot = telebot.TeleBot('YOUR_TOKEN_HERE')
+
+@bot.message_handler(commands=['start', 'help'])
+def send_welcome(message):
+    bot.reply_to(message, "Hello! I'm a Telegram bot that can search for information by keywords. How can I help you?")
+
+@bot.message_handler(func=lambda message: True)
+def search(message):
+    # search for information by keywords
+    # and send the results back to the user
+
+bot.polling()
